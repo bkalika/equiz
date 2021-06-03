@@ -16,39 +16,39 @@
 	<div class="col-6 offset-md-3">
 		<h2><my:Locale value="page.test.yours" /></h2>
 	</div>
-	<div>
-		<form method="post" action="controller">
-			<input type="hidden" name="command" value="testCommand">
-			<input type="hidden" name="sort" value="name">
-			<button type="submit" class="btn btn-link">
-				<my:Locale value="page.tests.sord.name"/>
-			</button>
-		</form>
-	</div>
-	<div>
-		<form method="post" action="controller">
-			<input type="hidden" name="command" value="testCommand">
-			<input type="hidden" name="sort" value="level">
-			<button type="submit" class="btn btn-link">
-				<my:Locale value="page.tests.sord.level"/>
-			</button>
-		</form>
-	</div>
-	<div>
-		<form method="post" action="controller">
-			<input type="hidden" name="command" value="testCommand">
-			<input type="hidden" name="sort" value="popularity">
-			<button type="submit" class="btn btn-link">
-				<my:Locale value="page.tests.sord.popularity"/>
-			</button>
-		</form>
-	</div>
 	<div class="col-6 offset-md-3">
 		<table border="1" cellpadding="2" cellspacing="1">
 			<tr>
-				<th><my:Locale value="page.tests.level" /></th>
-				<th><my:Locale value="page.tests.popularity" /></th>
-				<th><my:Locale value="page.tests.passed.name" /></th>
+				<th>
+					<form method="post" action="controller">
+						<input type="hidden" name="command" value="testCommand">
+						<input type="hidden" name="subjectId" value="${subjectId}">
+						<input type="hidden" name="sort" value="level">
+						<button type="submit" class="btn btn-link">
+							<my:Locale value="page.tests.level"/>
+						</button>
+					</form>
+				</th>
+				<th>
+					<form method="post" action="controller">
+						<input type="hidden" name="command" value="testCommand">
+						<input type="hidden" name="subjectId" value="${subjectId}">
+						<input type="hidden" name="sort" value="popularity">
+						<button type="submit" class="btn btn-link">
+							<my:Locale value="page.tests.popularity"/>
+						</button>
+					</form>
+				</th>
+				<th>
+					<form method="post" action="controller">
+						<input type="hidden" name="command" value="testCommand">
+						<input type="hidden" name="subjectId" value="${subjectId}">
+						<input type="hidden" name="sort" value="name">
+						<button type="submit" class="btn btn-link">
+							<my:Locale value="page.tests.passed.name"/>
+						</button>
+					</form>
+				</th>
 				<th><my:Locale value="page.tests.deadline" /></th>
 				<th><my:Locale value="page.tests.score" /></th>
 				<th><my:Locale value="page.tests.duration" /></th>
