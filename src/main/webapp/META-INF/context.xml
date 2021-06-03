@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/equiz"
+	type="javax.sql.DataSource"
+	maxTotal="100"
+	maxIdle="30"
+	maxWaitMillis="10000"
+	url="jdbc:mysql://localhost:3306/testingsysdb?encoding=UTF-8&amp;useUnicode=true&amp;characterEncoding=UTF-8"
+	driverClassName="com.mysql.jdbc.Driver"
+	validationQuery="SELECT 1"
+	username="site"
+	password="site" />
+</Context>
