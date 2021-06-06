@@ -26,7 +26,6 @@ public class GoToUserCommand extends Command {
 		LOG.trace("Start tracing GoToUserCommand");
 		HttpSession session = request.getSession();
 		Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
-		String role = String.valueOf(session.getAttribute("role"));
 		List<UserTestBean> userPassedTests = DAOFactory.getTestDAO().findUserPassedTest(userId);
 		request.setAttribute("passedTests", userPassedTests);
 		return Path.PAGE_PAGE_USER;

@@ -13,8 +13,6 @@ import org.apache.log4j.Logger;
 import com.equiz.db.Query;
 import com.equiz.db.daos.interfaces.IRoleDAO;
 import com.equiz.db.dtos.Role;
-import com.equiz.db.dtos.Subject;
-import com.equiz.db.dtos.User;
 
 public class RoleDAO extends Role implements IRoleDAO {
 	private static final long serialVersionUID = -1848507614736929041L;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-	<Resource name="jdbc/equiz"
+	<Resource
+	name="jdbc/testingsysdb"
 	type="javax.sql.DataSource"
 	maxTotal="100"
 	maxIdle="30"
@@ -10,4 +11,9 @@
 	validationQuery="SELECT 1"
 	username="site"
 	password="site" />
+	
+	<ResourceLink
+	name="jdbc/testingsysdb"
+	global="jdbc/testingsysdb"
+	type="javax.sql.DataSource" />
 </Context>

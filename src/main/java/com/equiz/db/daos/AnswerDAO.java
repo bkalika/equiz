@@ -39,7 +39,20 @@ public class AnswerDAO implements IAnswerDAO {
 
 	@Override
 	public Answer find(Long id) {
-		// TODO Auto-generated method stub
+		LOG.trace("Starting tracing AnswerDAO#find");
+		try (Connection conn = ConnectionPool.getConnection();
+				PreparedStatement ps = conn.prepareStatement(Query.SELECT_ANSWER_BY_ID)) {
+			ps.setLong(1, id);
+			try (ResultSet rs = ps.executeQuery()) {
+				while (rs.next()) {
+					return mapAnswer(rs);
+				}
+			} catch (SQLException e) {
+				e.getErrorCode();
+			}
+		} catch (SQLException e) {
+			e.getErrorCode();
+		}
 		return null;
 	}
 

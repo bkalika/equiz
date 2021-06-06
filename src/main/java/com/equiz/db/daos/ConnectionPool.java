@@ -17,6 +17,9 @@ import org.apache.log4j.Logger;
  */
 public class ConnectionPool {
 	private static final Logger LOG = Logger.getLogger(ConnectionPool.class);
+	
+	private ConnectionPool(){
+	}
 
 	/**
 	 * Establish connection with Database
@@ -27,7 +30,7 @@ public class ConnectionPool {
 		try {
 			Context initCtx = new InitialContext();
 			Context envContext = (Context) initCtx.lookup("java:/comp/env");
-			DataSource ds = (DataSource) envContext.lookup("jdbc/equiz");
+			DataSource ds = (DataSource) envContext.lookup("jdbc/testingsysdb");
 			LOG.trace("Connection is successful");
 			return ds.getConnection();
 		} catch (NamingException e) {

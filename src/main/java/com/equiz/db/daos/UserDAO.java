@@ -12,9 +12,7 @@ import org.apache.log4j.Logger;
 
 import com.equiz.db.Query;
 import com.equiz.db.daos.interfaces.IUserDAO;
-import com.equiz.db.dtos.Answer;
 import com.equiz.db.dtos.Role;
-import com.equiz.db.dtos.Subject;
 import com.equiz.db.dtos.User;
 
 public class UserDAO extends User implements IUserDAO {

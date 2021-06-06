@@ -3,7 +3,6 @@ package com.equiz.db.daos.interfaces;
 import java.util.List;
 
 import com.equiz.db.dtos.Answer;
-import com.equiz.db.dtos.Question;
 
 public interface IAnswerDAO {
 	void insert(String name, Long questionId, Boolean isCorrect);

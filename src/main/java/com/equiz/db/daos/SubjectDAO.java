@@ -12,7 +12,6 @@ import org.apache.log4j.Logger;
 
 import com.equiz.db.Query;
 import com.equiz.db.daos.interfaces.ISubjectDAO;
-import com.equiz.db.dtos.Role;
 import com.equiz.db.dtos.Subject;
 
 public class SubjectDAO implements ISubjectDAO {

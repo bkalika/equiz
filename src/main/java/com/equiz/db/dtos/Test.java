@@ -25,7 +25,6 @@ public class Test extends DTO {
 		this.deadline = deadline;
 		this.score = score;
 		this.level = level;
-		this.popularity = popularity;
 		this.duration = duration;
 	}
 

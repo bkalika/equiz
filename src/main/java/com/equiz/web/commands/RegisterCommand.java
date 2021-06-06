@@ -1,8 +1,6 @@
 package com.equiz.web.commands;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -89,7 +87,6 @@ public class RegisterCommand extends Command {
 		} else {
 			Util.deleteUserCookie(response);
 		}
-		List<User> usersList = new ArrayList<>(Arrays.asList(user));
 		List<UserTestBean> userPassedTests = DAOFactory.getTestDAO().findUserPassedTest(user.getId());
 		request.setAttribute("passedTests", userPassedTests);
 		forward = Path.PAGE_PAGE_USER;

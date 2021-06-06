@@ -34,7 +34,6 @@ public class SolveCommand extends Command {
 
 		List<?> questions = (List<?>) session.getAttribute("questions");
 		List<List<String>> answers = (List<List<String>>) session.getAttribute("answers");
-
 		Enumeration<String> parameterNames = request.getParameterNames();
 		List<String> curAnswers = new ArrayList<>();
 		while (parameterNames.hasMoreElements()) {
@@ -65,7 +64,6 @@ public class SolveCommand extends Command {
 		Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
 		List<UserTestBean> userPassedTests = DAOFactory.getTestDAO().findUserPassedTest(userId);
 		request.setAttribute("passedTests", userPassedTests);
-		
 		String forward = Path.PAGE_SOLVE_TEST;
 		if (Objects.equals(request.getParameter("stop"), "1")) {
 			forward = Path.PAGE_PAGE_USER;

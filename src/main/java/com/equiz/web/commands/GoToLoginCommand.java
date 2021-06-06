@@ -22,8 +22,6 @@ public class GoToLoginCommand extends Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		LOG.trace("Start tracing GoToLoginCommand");
 		HttpSession session = request.getSession();
-		Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
-		String role = String.valueOf(session.getAttribute("role"));
 		
 		if (session.getAttribute("username") != null) {
 			return Path.PAGE_PAGE_USER;

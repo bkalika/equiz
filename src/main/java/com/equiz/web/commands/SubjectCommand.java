@@ -23,7 +23,6 @@ public class SubjectCommand extends Command {
 			throws IOException, ServletException {
 		LOG.trace("Starting trace SubjectCommand");
 		HttpSession session = request.getSession();
-		Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
 		String role = String.valueOf(session.getAttribute("role"));
 		List<Subject> subjects = null;
 		switch (role) {

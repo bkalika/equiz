@@ -119,6 +119,7 @@ public class Query {
 	public static final String UPDATE_QUESTION = "UPDATE question SET name = ?, score = ?, is_single = ? WHERE id = ?;";
 	public static final String DELETE_QUESTION = "DELETE FROM question WHERE id = ?";
 	
+	public static final String SELECT_ANSWER_BY_ID = "SELECT * FROM answer WHERE id = ?;";
 	public static final String INSERT_ANSWER = "INSERT INTO answer (name, question_id, is_correct) VALUES (?, ?, ?);";
 	public static final String UPDATE_ANSWER = "UPDATE answer SET name = ?, is_correct = ? WHERE id = ?;";
 	public static final String DELETE_ANSWER = "DELETE FROM answer WHERE id = ?";

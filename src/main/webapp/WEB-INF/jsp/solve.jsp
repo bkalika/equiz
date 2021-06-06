@@ -29,6 +29,12 @@
 	<div class="w3-container">
 		<h2>${cur_question.name}</h2>
 		<form method="post">
+			<%--<c:forEach var="answer" items="${cur_question.answers}">
+				<p>
+					<input class="w3-check" type="checkbox" name="${answer.id}" id="${answer.id}"> <label for="${answer.id}">${answer.name}</label>
+				</p>
+			</c:forEach> --%>
+
 			<c:forEach var="answer" items="${cur_question.answers}">
 				<p>
 					<input class="w3-check" type="checkbox" name="${answer.id}" id="${answer.id}"> <label for="${answer.id}">${answer.name}</label>
@@ -39,16 +45,17 @@
 			<c:choose>
 				<c:when test="${sessionScope.cur_question_number + 1 == total}">
 					<input name="stop" value="1" type="hidden">
+					<input name="testId" value="${requestScope.test.id}" type="hidden">
 					<button type="submit" class="btn btn-success profile">
 						<my:Locale value="page.test.solve.finish" />
 					</button>
 				</c:when>
 				<c:otherwise>
-					<input type="submit" name="submit"
-						value="<my:Locale value="page.test.solve.continue"/>"
-						class="btn btn-success profile">
+					<input type="submit" name="submit" value="<my:Locale value="page.test.solve.continue"/>" class="btn btn-success profile">
+					<input name="testId" value="${requestScope.test.id}" type="hidden">
 				</c:otherwise>
 			</c:choose>
+			<input name="testId" value="${requestScope.test.id}"  type="hidden">
 		</form>
 		<div class="w3-light-grey w3-round">
 			<div class="w3-container w3-round w3-blue" style="width:${percent}%">${percent}%</div>
