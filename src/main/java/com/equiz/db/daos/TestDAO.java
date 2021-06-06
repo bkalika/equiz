@@ -308,7 +308,7 @@ public class TestDAO implements ITestDAO {
 	
 	@Override
 	public void increaseTestPopularity(Test test) {
-		LOG.trace("Starting tracing TestDAO#increaseTestScore");
+		LOG.trace("Starting tracing TestDAO#increaseTestPopularity");
 		test.setPopularity(test.getPopularity()+1);
 		try (Connection connection = ConnectionPool.getConnection()) {
 			if (connection != null) {
