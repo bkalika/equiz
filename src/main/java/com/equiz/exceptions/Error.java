@@ -16,7 +16,7 @@ public class Error {
 	public static final String ERR_QUESTION_ALREADY_EXIST = "Question name already exist. Enter another one.";
 	public static final String ERR_TEST_ALREADY_EXIST = "Test name already exist. Enter another one.";
 	public static final String ERR_ANSWER_ALREADY_EXIST = "Answer name already exist. Enter another one.";
-	public static final String ERR_CORRECT_ANSWER_ALREADY_EXIST = "The correct answer has already existed. Enter incorrect answer.";
-	public static final String ERR_THE_SAME_ANSWER_ALREADY_EXIST = "The answer has already existed. Enter another one or change the correctness.";
+	public static final String ERR_CORRECT_ANSWER_ALREADY_EXIST = "The correct answer has already been existed. Enter incorrect answer.";
+	public static final String ERR_THE_SAME_ANSWER_ALREADY_EXIST = "The answer has already been existed. Enter another one or change the correctness.";
 
 }

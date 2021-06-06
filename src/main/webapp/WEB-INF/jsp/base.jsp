@@ -57,6 +57,7 @@
 						</button>
 					</form>
 				</li>
+				<c:if test="${user == null}">
 				<li class="nav-item">
 					<div id="flags">
 						<form action="controller" method="post">
@@ -67,6 +68,7 @@
 						</form>
 					</div>
 				</li>
+				
 				<li class="nav-item">
 					<div id="flags">
 						<form action="controller" method="post">
@@ -77,6 +79,7 @@
 						</form>
 					</div>
 				</li>
+				</c:if>
 				<p>${user.name}</p>
 			</ul>
 		</div>

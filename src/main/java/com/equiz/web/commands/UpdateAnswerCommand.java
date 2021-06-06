@@ -30,16 +30,17 @@ public class UpdateAnswerCommand extends Command {
 		boolean existCorrect = false;
 		Question question = DAOFactory.getQuestionDAO().find(questionId);
 		List<Answer> answers = DAOFactory.getAnswerDAO().findByQuestionId(questionId);
+		Answer currentAnswer = DAOFactory.getAnswerDAO().find(id);
 		for (Answer answer : answers) {
 			if (newName.equals(answer.getName()) && newIsCorrect.equals(answer.getIsCorrect())) {
 				existAnswer = true;
 			}
-			if (newIsCorrect == true && question.getIsSingle() == true) {
-				if (answer.getIsCorrect() == true) {
-					existCorrect = true;
-				}
+
+			if (newIsCorrect == true && question.getIsSingle() == true && answer.getIsCorrect() == true && currentAnswer.getIsCorrect() != true) {
+				existCorrect = true;
 			}
 		}
+
 		if (existAnswer) {
 			request.setAttribute("errorMessage", Error.ERR_THE_SAME_ANSWER_ALREADY_EXIST);
 		}
