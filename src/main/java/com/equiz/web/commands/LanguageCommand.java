@@ -10,19 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
-
 import com.equiz.Path;
 import com.equiz.exceptions.Error;
 
 @WebServlet(name = "ChangeLanguage")
 public class LanguageCommand extends Command {
 	private static final long serialVersionUID = -5909358727524765032L;
-	private static final Logger LOG = Logger.getLogger(LanguageCommand.class);
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		LOG.trace("Start tracing LanguageCommand");
 		HttpSession session = request.getSession();
 		List<String> languages = Arrays.asList("en", "uk");
 		String language = request.getParameter("language");

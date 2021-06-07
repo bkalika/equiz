@@ -28,6 +28,7 @@
 								<input type="text" name="username" id="inputEmail" class="form-control"
 									placeholder="<my:Locale value="page.login.username"/>" required autofocus>
 							</div>
+							<br>
 
 							<div class="form-label-group">
 								<input type="password" name="password" id="inputPassword" class="form-control"
