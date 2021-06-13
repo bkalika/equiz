@@ -6,6 +6,11 @@ import java.util.List;
 import com.equiz.db.beans.UserTestBean;
 import com.equiz.db.dtos.Test;
 
+/**
+ * DAO class for managing {@link Test} entities
+ *
+ * @author bkalika
+ */
 public interface ITestDAO {
 	List<Test> find();
 	Test find(Long testId);

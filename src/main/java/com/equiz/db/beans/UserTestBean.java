@@ -2,7 +2,11 @@ package com.equiz.db.beans;
 
 import java.time.LocalDateTime;
 
-public class UserTestBean {
+import com.equiz.db.dtos.DTO;
+
+public class UserTestBean extends DTO {
+	private static final long serialVersionUID = 3697106792533683072L;
+
 	private Long testId;
 	private Long subjectId;
 	private Long userId;
@@ -64,7 +68,7 @@ public class UserTestBean {
 	public void setUserPassedDate(LocalDateTime userPassedDate) {
 		this.userPassedDate = userPassedDate;
 	}
-	
+
 	public Long getScore() {
 		return userScore;
 	}
@@ -88,50 +92,51 @@ public class UserTestBean {
 	public void setPassedDate(LocalDateTime passedDate) {
 		this.userPassedDate = passedDate;
 	}
-	
+
 	public Long getTestId() {
 		return testId;
 	}
-	
+
 	public void setTestId(Long testId) {
 		this.testId = testId;
 	}
-	
+
 	public Long getSubjectId() {
 		return subjectId;
 	}
+
 	public void setSubjectId(Long subjectId) {
 		this.subjectId = subjectId;
 	}
-	
+
 	public Long getUserId() {
 		return userId;
 	}
-	
+
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	
+
 	public String getTestName() {
 		return testName;
 	}
-	
+
 	public void setTestName(String testName) {
 		this.testName = testName;
 	}
-	
+
 	public String getSubjectName() {
 		return subjectName;
 	}
-	
+
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
-	
+
 	public String getUserName() {
 		return userName;
 	}
-	
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}

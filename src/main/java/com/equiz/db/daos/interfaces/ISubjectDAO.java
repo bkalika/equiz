@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.equiz.db.dtos.Subject;
 
+/**
+ * DAO class for managing {@link Subject} entities
+ *
+ * @author bkalika
+ */
 public interface ISubjectDAO {
 	List<Subject> find();
 	Subject find(Long id);

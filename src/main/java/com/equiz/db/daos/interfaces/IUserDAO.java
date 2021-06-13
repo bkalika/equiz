@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.equiz.db.dtos.User;
 
+/**
+ * DAO class for managing {@link User} entities
+ *
+ * @author bkalika
+ */
 public interface IUserDAO {
 	public User findUserByLogin(String login);
 	User find(Long userId);

@@ -58,6 +58,7 @@ public class AnswerDAO implements IAnswerDAO {
 
 	@Override
 	public List<Answer> findByQuestionId(Long questionId) {
+		LOG.trace("Starting tracing AnswerDAO#findByQuestionId");
 		List<Answer> answers = new ArrayList<>();
 		try (Connection connection = ConnectionPool.getConnection();
 				PreparedStatement ps = connection.prepareStatement(Query.SELECT_ANSWERS_BY_QUESTION_ID)) {

@@ -47,13 +47,8 @@ public class GoToSolveTestCommand extends Command {
 	private String doGetStart(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		LocalDateTime date = LocalDateTime.now();
-		HttpSession session = request.getSession();
-		String role = String.valueOf(session.getAttribute("role"));
-		Long testId = 0l;
-		testId = Long.parseLong(String.valueOf(request.getParameter("testId")));
-//		UserTestBean userTest = DAOFactory.getTestDAO().findUserTestByTestId(userId, testId);
+		Long testId = Long.parseLong(String.valueOf(request.getParameter("testId")));
 		Test userTest = DAOFactory.getTestDAO().find(testId);
-		if (!role.equals("admin")) {
 			request.setAttribute("test", userTest);
 			LocalDateTime deadline = userTest.getDeadline();
 			if (date.compareTo(deadline) > 0) {
@@ -63,7 +58,6 @@ public class GoToSolveTestCommand extends Command {
 				rd.forward(request, response);
 				return Path.PAGE_SOLVE_PREPARE;
 			}
-		}
 		if (Objects.equals(request.getParameter("confirm"), "1")) {
 			doGetConfirm(request, response);
 		} else {
@@ -80,7 +74,6 @@ public class GoToSolveTestCommand extends Command {
 		Long userId = Long.parseLong(String.valueOf(session.getAttribute("userId")));
 
 		Long testId = Long.parseLong(request.getParameter("testId"));
-//		UserTestBean userTest = DAOFactory.getTestDAO().findUserTestByTestId(userId, (Long.valueOf(testId)));
 		Test userTest = DAOFactory.getTestDAO().find((Long.valueOf(testId)));
 
 		List<Question> questions = DAOFactory.getQuestionDAO().findAll(Long.valueOf(testId));

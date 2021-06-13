@@ -66,7 +66,6 @@ public class Util {
 		userTest.setScore(Long.valueOf(score));
 		userTest.setPassedDate(LocalDateTime.now());
 		userTest.setTestId(test.getId());
-//		userTest.setUserId(test.getUserId());
 		userTest.setUserId(userId);
 		DAOFactory.getTestDAO().update(userTest);
 		session.setAttribute("test", null);

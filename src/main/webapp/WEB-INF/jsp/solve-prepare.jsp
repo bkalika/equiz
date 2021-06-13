@@ -33,18 +33,14 @@
 			<c:choose>
 				<c:when test="${role == 'admin'}">
 					
-					<%-- <input name="testId" value="${tests.get(0).id}"  type="hidden"> --%>
 					<input name="testId" value="${requestScope.test.id}"  type="hidden">
 				</c:when>
 				<c:otherwise>
-					<%--<input name="testId" value="${tests.get(1).testId}"  type="hidden"> --%>
 					<c:if test="${tests != null}">
-						<%-- <input name="testId" value="${tests.get(0).id}"  type="hidden"> --%>
 						<input name="testId" value="${requestScope.test.id}"  type="hidden">
 					</c:if>
 				</c:otherwise>
 			</c:choose>
-			
 			<input type="hidden" name="command" value="goToSolveTestCommand">
 			<button type="submit" class="btn btn-success profile"><my:Locale value="page.test.solve.continue"/></button>
 		</form>

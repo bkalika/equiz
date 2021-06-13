@@ -179,6 +179,7 @@ public class UserDAO extends User implements IUserDAO {
 	
 	@Override
 	public void update(User user) {
+		LOG.trace("Start tracing UserDAO#update");
 		try (Connection connection = ConnectionPool.getConnection()) {
 			if (connection != null) {
 				try (PreparedStatement statement = connection.prepareStatement(Query.UPDATE_USER, Statement.RETURN_GENERATED_KEYS)) {
@@ -201,6 +202,7 @@ public class UserDAO extends User implements IUserDAO {
 	
 	@Override
 	public void addUsersToTheTest(Long testId, List<User> users) {
+		LOG.trace("Start tracing UserDAO#addUsersToTheTest");
 		try (Connection connection = ConnectionPool.getConnection()) {
 			if (connection != null) {
 				try (PreparedStatement statement = connection.prepareStatement(Query.INSERT_USERS_TO_THE_TEST, Statement.RETURN_GENERATED_KEYS)) {

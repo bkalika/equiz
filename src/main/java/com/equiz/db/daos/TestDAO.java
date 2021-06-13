@@ -69,6 +69,7 @@ public class TestDAO implements ITestDAO {
 
 	@Override
 	public List<UserTestBean> findUserTestsBySubject(Long userId, Long subjectId) {
+		LOG.trace("Starting tracing TestDAO#findUserTestsBySubject");
 		List<UserTestBean> tests = new ArrayList<>();
 		try (Connection connection = ConnectionPool.getConnection()) {
 			if (connection != null) {
@@ -96,6 +97,7 @@ public class TestDAO implements ITestDAO {
 
 	@Override
 	public List<Test> findBySubject(Long subjectId) {
+		LOG.trace("Starting tracing TestDAO#findBySubject");
 		List<Test> tests = new ArrayList<>();
 		try (Connection connection = ConnectionPool.getConnection()) {
 			if (connection != null) {
@@ -122,6 +124,7 @@ public class TestDAO implements ITestDAO {
 	
 	@Override
 	public List<Test> findUsersTestBySubject(Long userId, Long subjectId) {
+		LOG.trace("Starting tracing TestDAO#findUsersTestBySubject");
 		List<Test> tests = new ArrayList<>();
 		try (Connection connection = ConnectionPool.getConnection()) {
 			if (connection != null) {
@@ -149,6 +152,7 @@ public class TestDAO implements ITestDAO {
 
 	@Override
 	public UserTestBean findUserTestByTestId(Long userId, Long testId) {
+		LOG.trace("Starting tracing TestDAO#findUserTestByTestId");
 		try (Connection conn = ConnectionPool.getConnection();
 				PreparedStatement ps = conn.prepareStatement(Query.SELECT_USER_TEST_BY_TEST_ID)) {
 			ps.setLong(1, userId);
@@ -166,8 +170,37 @@ public class TestDAO implements ITestDAO {
 		return null;
 	}
 
+	
+
+	@Override
+	public List<UserTestBean> findUserPassedTest(Long userId) {
+		LOG.trace("Starting tracing TestDAO#findUserPassedTest");
+		List<UserTestBean> tests = new ArrayList<>();
+		try (Connection connection = ConnectionPool.getConnection()) {
+			if (connection != null) {
+				try (PreparedStatement statement = connection.prepareStatement(Query.SELECT_USER_PASSED_TEST)) {
+					statement.setLong(1, userId);
+					statement.execute();
+					try (ResultSet rs = statement.executeQuery()) {
+						while (rs.next()) {
+							tests.add(mapUserTestBean(rs));
+						}
+					} catch (SQLException e) {
+						e.getSQLState();
+					}
+				} catch (SQLException e) {
+					LOG.info(e.getSQLState());
+				}
+			}
+		} catch (SQLException e) {
+			LOG.info(e.getLocalizedMessage());
+		}
+		return tests;
+	}
+	
 	@Override
 	public void update(UserTestBean userTest) {
+		LOG.trace("Starting tracing TestDAO#update");
 		try (Connection connection = ConnectionPool.getConnection();
 				PreparedStatement ps = connection.prepareStatement(Query.UPDATE_USER_TEST)) {
 			ps.setLong(1, userTest.getScore());
@@ -206,6 +239,7 @@ public class TestDAO implements ITestDAO {
 	}
 	
 	public void update(Long id, String name, LocalDateTime deadline, Long level, int duration) {
+		LOG.trace("Starting tracing TestDAO#update");
 		try (Connection connection = ConnectionPool.getConnection();
 				PreparedStatement ps = connection.prepareStatement(Query.UPDATE_TEST)) {
 			ps.setString(1, name);
@@ -219,31 +253,6 @@ public class TestDAO implements ITestDAO {
 		} catch (Exception e) {
 			LOG.error(e.getLocalizedMessage());
 		}
-	}
-
-	@Override
-	public List<UserTestBean> findUserPassedTest(Long userId) {
-		List<UserTestBean> tests = new ArrayList<>();
-		try (Connection connection = ConnectionPool.getConnection()) {
-			if (connection != null) {
-				try (PreparedStatement statement = connection.prepareStatement(Query.SELECT_USER_PASSED_TEST)) {
-					statement.setLong(1, userId);
-					statement.execute();
-					try (ResultSet rs = statement.executeQuery()) {
-						while (rs.next()) {
-							tests.add(mapUserTestBean(rs));
-						}
-					} catch (SQLException e) {
-						e.getSQLState();
-					}
-				} catch (SQLException e) {
-					LOG.info(e.getSQLState());
-				}
-			}
-		} catch (SQLException e) {
-			LOG.info(e.getLocalizedMessage());
-		}
-		return tests;
 	}
 	
 	@Override

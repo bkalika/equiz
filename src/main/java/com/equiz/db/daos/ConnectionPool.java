@@ -27,6 +27,7 @@ public class ConnectionPool {
 	 * @return Connection with Database
 	 */
 	public static synchronized Connection getConnection() {
+		LOG.trace("Starting tracing ConnectionPool#getConnection");
 		try {
 			Context initCtx = new InitialContext();
 			Context envContext = (Context) initCtx.lookup("java:/comp/env");

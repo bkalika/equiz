@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.equiz.db.dtos.Question;
 
+/**
+ * DAO class for managing {@link Question} entities
+ *
+ * @author bkalika
+ */
 public interface IQuestionDAO {
 	Question find(Long id);
 	List<Question> findAll(Long testId);

@@ -40,6 +40,7 @@ public class QuestionDAO implements IQuestionDAO {
 
 	@Override
 	public List<Question> findAll(Long testId) {
+		LOG.trace("Starting tracing QuestionDAO#findAll");
 		List<Question> questions = new ArrayList<>();
 		try(Connection connection = ConnectionPool.getConnection();
 			PreparedStatement ps = connection.prepareStatement(Query.SELECT_QUESTIONS_BY_TEST_ID)) {
